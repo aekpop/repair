@@ -1,0 +1,1 @@
+<?php exit?>a:2:{i:0;a:3:{s:2:"id";i:12;s:11:"category_id";i:1;s:5:"topic";s:45:"เครื่องใช้ไฟฟ้า";}i:1;a:3:{s:2:"id";i:13;s:11:"category_id";i:2;s:5:"topic";s:39:"วัสดุสำนักงาน";}}

@@ -1,0 +1,1 @@
+<?php exit?>a:4:{i:0;a:3:{s:2:"id";i:15;s:11:"category_id";i:1;s:5:"topic";s:54:"เครื่องคอมพิวเตอร์";}i:1;a:3:{s:2:"id";i:10;s:11:"category_id";i:2;s:5:"topic";s:36:"เครื่องพิมพ์";}i:2;a:3:{s:2:"id";i:9;s:11:"category_id";i:3;s:5:"topic";s:36:"โปรเจ็คเตอร์";}i:3;a:3:{s:2:"id";i:17;s:11:"category_id";i:4;s:5:"topic";s:33:"จอมอนิเตอร์";}}
