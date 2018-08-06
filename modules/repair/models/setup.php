@@ -52,9 +52,9 @@ class Model extends \Kotchasan\Model
             ->join('repair_status S', 'LEFT', array('S.id', 'T.max_id'))
             ->join('inventory V', 'LEFT', array('V.id', 'R.inventory_id'))
             ->join('user U', 'LEFT', array('U.id', 'R.customer_id'))
-            ->join('toll Y', 'LEFT', array('Y.id', 'R.inventory_id'))
-            ->join('bth_direction Z', 'LEFT', array('Z.id', 'R.inventory_id'))
-            ->join('bth_number AA', 'LEFT', array('AA.id', 'R.inventory_id'))
+            ->join('toll Y', 'LEFT', array('Y.id', 'V.toll_id'))
+            ->join('bth_direction Z', 'LEFT', array('Z.id', 'V.bth_direction_id'))
+            ->join('bthnumber AA', 'LEFT', array('AA.id', 'V.bth_number_id'))
             ;
         if (!empty($where)) {
             $query->where($where);
