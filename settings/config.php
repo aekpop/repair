@@ -1,7 +1,7 @@
 <?php
 /* config.php */
 return array (
-  'web_title' => 'Repair',
+  'web_title' => 'Repair System',
   'web_description' => 'ระบบบันทึกข้อมูลงานซ่อม',
   'timezone' => 'Asia/Bangkok',
   'member_status' => 
@@ -16,5 +16,5 @@ return array (
     1 => '#FF0000',
     2 => '#0000FF',
   ),
-  'repair_first_status' => 7,
+  'repair_first_status' => 1,
 );

@@ -112,12 +112,14 @@ class View extends \Gcms\View
                     'text' => '{LNG_Informer}',
                     'sort' => 'name',
                 ),
-                'phone' => array(
-                    'text' => '{LNG_Phone}',
-                    'class' => 'center',
+                'toll_id' => array(
+                    'text' => '{LNG_toll}',
                 ),
                 'equipment' => array(
                     'text' => '{LNG_Equipment}',
+                ),
+                'equipment_number' => array(
+                    'text' => '{LNG_Equipment_number}',
                 ),
                 'create_date' => array(
                     'text' => '{LNG_Received date}',
@@ -188,7 +190,7 @@ class View extends \Gcms\View
     public function onRow($item, $o, $prop)
     {
         $item['create_date'] = Date::format($item['create_date'], 'd M Y');
-        $item['phone'] = self::showPhone($item['phone']);
+        //$item['phone'] = self::showPhone($item['phone']);
         $item['status'] = '<mark class=term style="background-color:'.$this->statuses->getColor($item['status']).'">'.$this->statuses->get($item['status']).'</mark>';
         $item['operator_id'] = $this->operators->get($item['operator_id']);
 

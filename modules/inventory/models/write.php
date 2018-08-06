@@ -45,6 +45,7 @@ class Model extends \Kotchasan\Model
             return (object) array(
                 'id' => $id,
                 'equipment' => '',
+                'equipment_number' => '',
                 'serial' => '',
                 'picture' => '',
             );
@@ -71,6 +72,7 @@ class Model extends \Kotchasan\Model
                 // ค่าที่ส่งมา
                 $save = array(
                     'equipment' => $request->post('equipment')->topic(),
+                    'equipment_number' => $request->post('equipment_number')->topic(),
                     'serial' => $request->post('serial')->topic(),
                 );
                 foreach (Language::get('INVENTORY_CATEGORIES') as $key => $label) {

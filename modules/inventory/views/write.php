@@ -55,6 +55,16 @@ class View extends \Gcms\View
             'maxlength' => 64,
             'value' => $index->equipment,
         ));
+        // equipment_number
+        $fieldset->add('text', array(
+            'id' => 'equipment_number',
+            'labelClass' => 'g-input icon-edit',
+            'itemClass' => 'item',
+            'label' => '{LNG_Equipment_number}',
+            'placeholder' => '{LNG_Details of} {LNG_Equipment_number}',
+            'maxlength' => 20,
+            'value' => $index->equipment_number,
+        ));
         // serial
         $fieldset->add('text', array(
             'id' => 'serial',
