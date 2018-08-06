@@ -46,12 +46,16 @@ class Model extends \Kotchasan\Model
             ->from('repair_status')
             ->groupBy('repair_id');
         $query = static::createQuery()
-            ->select('R.id', 'U.name', 'V.toll_id' , 'V.equipment', 'V.equipment_number', 'R.create_date', 'S.operator_id', 'S.status')
+            ->select('R.id', 'U.name', 'Y.nameToll' , 'Z.bthDirection' , 'AA.bthNumber' , 'V.equipment', 'V.equipment_number', 'R.create_date', 'S.operator_id', 'S.status')
             ->from('repair R')
             ->join(array($q1, 'T'), 'LEFT', array('T.repair_id', 'R.id'))
             ->join('repair_status S', 'LEFT', array('S.id', 'T.max_id'))
             ->join('inventory V', 'LEFT', array('V.id', 'R.inventory_id'))
-            ->join('user U', 'LEFT', array('U.id', 'R.customer_id'));
+            ->join('user U', 'LEFT', array('U.id', 'R.customer_id'))
+            ->join('toll Y', 'LEFT', array('Y.id', 'R.inventory_id'))
+            ->join('bth_direction Z', 'LEFT', array('Z.id', 'R.inventory_id'))
+            ->join('bth_number AA', 'LEFT', array('AA.id', 'R.inventory_id'))
+            ;
         if (!empty($where)) {
             $query->where($where);
         }

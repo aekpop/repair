@@ -77,7 +77,7 @@ class View extends \Gcms\View
             /* คอลัมน์ที่ไม่ต้องแสดงผล */
             'hideColumns' => array('id'),
             /* คอลัมน์ที่สามารถค้นหาได้ */
-            'searchColumns' => array('name', 'phone', 'job_id'),
+            'searchColumns' => array('name', 'toll_id', 'job_id'),
             /* ตั้งค่าการกระทำของของตัวเลือกต่างๆ ด้านล่างตาราง ซึ่งจะใช้ร่วมกับการขีดถูกเลือกแถว */
             'action' => 'index.php/repair/model/setup/action',
             'actionCallback' => 'dataTableActionCallback',
@@ -112,8 +112,14 @@ class View extends \Gcms\View
                     'text' => '{LNG_Informer}',
                     'sort' => 'name',
                 ),
-                'toll_id' => array(
-                    'text' => '{LNG_toll}',
+                'nameToll' => array(
+                    'text' => '{LNG_nameToll}',
+                ),
+                'bthDirection' => array(
+                    'text' => '{LNG_bthDirection}',
+                ),
+                'bthNumber' => array(
+                    'text' => '{LNG_bthNumber}',
                 ),
                 'equipment' => array(
                     'text' => '{LNG_Equipment}',
