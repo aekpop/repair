@@ -94,8 +94,13 @@ class View extends \Gcms\View
             'value' => $index->comment,
         ));
         // status_id
-        $fieldset->add('hidden', array(
+        $fieldset->add('text', array(
             'id' => 'status_id',
+            'labelClass' => 'g-input icon-comments',
+            'itemClass' => 'item',
+            'label' => '{LNG_Status Report}',
+            'comment' => '{LNG_Note or additional notes status}',
+            'maxlength' => 50,
             'value' => $index->status_id,
         ));
         $fieldset = $form->add('fieldset', array(

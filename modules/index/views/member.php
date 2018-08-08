@@ -52,9 +52,9 @@ class View extends \Gcms\View
             /* ฟังก์ชั่นจัดรูปแบบการแสดงผลแถวของตาราง */
             'onRow' => array($this, 'onRow'),
             /* คอลัมน์ที่ไม่ต้องแสดงผล */
-            'hideColumns' => array('id', 'visited', 'website', 'username'),
+            'hideColumns' => array('id', 'visited', 'website', 'username' , 'phone'),
             /* คอลัมน์ที่สามารถค้นหาได้ */
-            'searchColumns' => array('name', 'username', 'phone'),
+            'searchColumns' => array('name', 'username'),
             /* ตั้งค่าการกระทำของของตัวเลือกต่างๆ ด้านล่างตาราง ซึ่งจะใช้ร่วมกับการขีดถูกเลือกแถว */
             'action' => 'index.php/index/model/member/action',
             'actionCallback' => 'dataTableActionCallback',
