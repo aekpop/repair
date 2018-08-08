@@ -38,7 +38,7 @@ class Model extends \Kotchasan\Model
             } elseif ($request->post('serial')->exists()) {
                 $search = $request->post('serial')->topic();
                 $order = 'serial';
-            }
+            } 
             // query
             $query = $this->db()->createQuery()
                 ->select('id inventory_id', 'equipment', 'serial')

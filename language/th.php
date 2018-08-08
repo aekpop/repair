@@ -79,6 +79,7 @@ return array(
   'nameToll' => 'ด่านฯ',
   'bthDirection' => 'ขา',
   'bthNumber' => 'ช่องทาง',
+  'job_description' => 'อาการที่ชำรุด',
   'File' => 'ไฟล์',
   'Fill in the repair costs you want to inform the customer' => 'กรอกค่าใช้จ่ายในการซ่อมที่ต้องการแจ้งให้ลูกค้าทราบ',
   'Find equipment by' => 'ค้นหาพัสดุโดย',

@@ -32,11 +32,14 @@ class Model extends \Kotchasan\Model
      *
      * @return \Kotchasan\Database\QueryBuilder
      */
-    public static function toDataTable($operator, $status)
+    public static function toDataTable($operator, $customer, $status)
     {
         $where = array();
         if (!empty($operator)) {
             $where[] = array('S.operator_id', $operator);
+        }
+        if (!empty($customer)) {
+            $where[] = array('R.customer_id', $customer);
         }
         if ($status > -1) {
             $where[] = array('S.status', $status);
@@ -46,7 +49,8 @@ class Model extends \Kotchasan\Model
             ->from('repair_status')
             ->groupBy('repair_id');
         $query = static::createQuery()
-            ->select('R.id', 'U.name', 'Y.nameToll' , 'Z.bthDirection' , 'AA.bthNumber' , 'V.equipment', 'V.equipment_number', 'R.create_date', 'S.operator_id', 'S.status')
+            ->select('R.id', 'U.name', 'Y.nameToll' , 'Z.bthDirection' , 'AA.bthNumber' , 'V.equipment',
+                'V.equipment_number', 'R.create_date', 'R.job_description', 'S.status')
             ->from('repair R')
             ->join(array($q1, 'T'), 'LEFT', array('T.repair_id', 'R.id'))
             ->join('repair_status S', 'LEFT', array('S.id', 'T.max_id'))

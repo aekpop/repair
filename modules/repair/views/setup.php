@@ -33,6 +33,9 @@ class View extends \Gcms\View
      */
     private $operators;
 
+    
+    private $customers;
+
     /**
      * ตารางรายชื่อสมาชิก
      *
@@ -47,6 +50,23 @@ class View extends \Gcms\View
         // สถานะการซ่อม
         $this->statuses = \Repair\Status\Model::create();
         $status = $request->request('status', -1)->toInt();
+ 
+        // รายชื่อผู้แจ้งซ่อม
+        $customer_id = $request->request('customer_id')->toInt();
+        $this->customers = \Repair\Operator\Model::create();
+        $customers = array();
+        if ($isAdmin) {
+            $customers[0] = '{LNG_all items}';
+            $customer = $customer_id;
+        } else {
+            $customer_id = $login['id'];
+            $customer = array(0, $customer_id);
+        }
+        foreach ($this->customers->toSelect() as $m => $n) {
+            if ($isAdmin || $m == $customer_id) {
+                $customers[$m] = $n;
+            }
+        }
         // รายชื่อช่างซ่อม
         $operator_id = $request->request('operator_id')->toInt();
         $this->operators = \Repair\Operator\Model::create();
@@ -70,7 +90,7 @@ class View extends \Gcms\View
             /* Uri */
             'uri' => $uri,
             /* Model */
-            'model' => \Repair\Setup\Model::toDataTable($operator, $status),
+            'model' => \Repair\Setup\Model::toDataTable($operator, $customer, $status),
             'perPage' => $request->cookie('repair_perPage', 30)->toInt(),
             'sort' => $request->cookie('repair_sort', 'create_date desc')->toString(),
             'onRow' => array($this, 'onRow'),
@@ -93,12 +113,18 @@ class View extends \Gcms\View
             ),
             /* ตัวเลือกด้านบนของตาราง ใช้จำกัดผลลัพท์การ query */
             'filters' => array(
-                array(
-                    'name' => 'operator_id',
-                    'text' => '{LNG_Operator}',
-                    'options' => $operators,
-                    'value' => $operator_id,
-                ),
+                //array(
+                //    'name' => 'operator_id',
+                //    'text' => '{LNG_Operator}',
+                //    'options' => $operators,
+                //    'value' => $operator_id,
+                //),
+                //array(
+                //    'name' => 'customer_id',
+                //    'text' => '{LNG_Informer}',
+                //    'options' => $customers,
+                //    'value' => $customer_id,
+                //),
                 array(
                     'name' => 'status',
                     'text' => '{LNG_Repair status}',
@@ -198,7 +224,7 @@ class View extends \Gcms\View
         $item['create_date'] = Date::format($item['create_date'], 'd M Y');
         //$item['phone'] = self::showPhone($item['phone']);
         $item['status'] = '<mark class=term style="background-color:'.$this->statuses->getColor($item['status']).'">'.$this->statuses->get($item['status']).'</mark>';
-        $item['operator_id'] = $this->operators->get($item['operator_id']);
+        //$item['operator_id'] = $this->operators->get($item['operator_id']);
 
         return $item;
     }

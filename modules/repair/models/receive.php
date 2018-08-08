@@ -45,7 +45,7 @@ class Model extends \Kotchasan\Model
                 'job_description' => '',
                 'id' => 0,
                 'comment' => '',
-                'status_id' => 0,
+                'status_id' => '',
             );
         } else {
             // แก้ไข
