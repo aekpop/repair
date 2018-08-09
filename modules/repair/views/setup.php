@@ -150,13 +150,19 @@ class View extends \Gcms\View
                 'equipment' => array(
                     'text' => '{LNG_Equipment}',
                 ),
-                'equipment_number' => array(
-                    'text' => '{LNG_Equipment_number}',
-                ),
+                //'equipment_number' => array(
+                //    'text' => '{LNG_Equipment_number}',
+                //),
                 'create_date' => array(
                     'text' => '{LNG_Received date}',
                     'class' => 'center',
                     'sort' => 'create_date',
+                ),
+                'job_description' => array(
+                    'text' => '{LNG_job_description}',
+                ),
+                'comment' => array(
+                    'text' => '{LNG_Comment}',
                 ),
                 'operator_id' => array(
                     'text' => '{LNG_Operator}',

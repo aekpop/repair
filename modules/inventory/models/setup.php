@@ -30,11 +30,19 @@ class Model extends \Kotchasan\Model
      */
     public static function toDataTable()
     {
-        return static::createQuery()
-            ->select()
-            ->from('inventory');
+        $query = static::createQuery()
+            ->select('I.id' , 'I.equipment', 'I.equipment_number' , 'Y.nameToll' , 'Z.bthDirection' ,
+            'A.bthNumber' , 'I.serial','I.category_id' , 'I.type_id' ,'I.model_id')
+            ->from('inventory I')
+            ->join('toll Y', 'LEFT' , array('Y.id', 'I.toll_id'))
+            ->join('bth_direction Z', 'LEFT' , array('Z.id', 'I.bth_direction_id'))
+            ->join('bthnumber A', 'LEFT', array('A.id' , 'I.bth_number_id'))   
+            ;
+            if (!empty($where)) {
+                $query->where($where);
+        }
+        return $query;
     }
-
     /**
      * รับค่าจาก action.
      *

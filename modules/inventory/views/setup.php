@@ -39,11 +39,28 @@ class View extends \Gcms\View
      */
     public function render(Request $request, $login)
     {
-        $fields = array('id', 'equipment','equipment_number', 'serial');
+        $fields = array('id', 'equipment','equipment_number' , 'nameToll' , 'bthDirection' ,
+         'bthNumber' , 'serial');
         $headers = array(
             'equipment' => array(
                 'text' => '{LNG_Equipment}',
                 'sort' => 'equipment',
+            ),
+            'equipment_number' => array(
+                'text' => '{LNG_Equipment_number}',
+                'sort' => 'equipment_number',
+            ),
+            'nameToll' => array(
+                'text' => '{LNG_nameToll}',
+                'sort' => 'toll_id',
+            ),
+            'bthDirection' => array(
+                'text' => '{LNG_bthDirection}',
+                'sort' => 'bth_direction_id',
+            ),
+            'bthNumber' => array(
+                'text' => '{LNG_bthNumber}',
+                'sort' => 'bth_number_id',
             ),
             'serial' => array(
                 'text' => '{LNG_Serial/Registration number}',
@@ -93,7 +110,7 @@ class View extends \Gcms\View
             /* คอลัมน์ที่ไม่ต้องแสดงผล */
             'hideColumns' => array('id'),
             /* คอลัมน์ที่สามารถค้นหาได้ */
-            'searchColumns' => array('equipment', 'equipment_number', 'serial' ), // equipment_number ยังค้นหาไม่ได่้
+            'searchColumns' => array('equipment', 'equipment_number', 'serial' ),
             /* ตั้งค่าการกระทำของของตัวเลือกต่างๆ ด้านล่างตาราง ซึ่งจะใช้ร่วมกับการขีดถูกเลือกแถว */
             'action' => 'index.php/inventory/model/setup/action',
             'actionCallback' => 'dataTableActionCallback',
