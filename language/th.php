@@ -125,7 +125,7 @@ return array(
   'Manage languages' => 'จัดการภาษา',
   'Member list' => 'รายชื่อสมาชิก',
   'Member status' => 'สถานะสมาชิก',
-  'Module' => 'โมดูล',
+  'Module' => 'การปฎิบัติงาน',
   'Module settings' => 'ตั้งค่าโมดูล',
   'MONTH_LONG' => array(
     1 => 'มกราคม',
@@ -177,7 +177,7 @@ return array(
   'Profile' => 'ข้อมูลส่วนตัว',
   'Province' => 'จังหวัด',
   'Receipt No.' => 'เลขที่ใบรับ',
-  'Received date' => 'วันที่แจ้งซ่อม',
+  'Received date' => 'วันที่ / เวลา',
   'Register' => 'สมัครสมาชิก',
   'Remember me' => 'จำการเข้าระบบ',
   'Remove' => 'ลบ',

@@ -52,15 +52,15 @@ class View extends \Gcms\View
             ),
             'nameToll' => array(
                 'text' => '{LNG_nameToll}',
-                'sort' => 'toll_id',
+            //    'sort' => 'toll_id',
             ),
             'bthDirection' => array(
                 'text' => '{LNG_bthDirection}',
-                'sort' => 'bth_direction_id',
+            //    'sort' => 'bth_direction_id',
             ),
             'bthNumber' => array(
                 'text' => '{LNG_bthNumber}',
-                'sort' => 'bth_number_id',
+            //   'sort' => 'bth_number_id',
             ),
             'serial' => array(
                 'text' => '{LNG_Serial/Registration number}',
@@ -133,7 +133,7 @@ class View extends \Gcms\View
             /* ปุ่มแสดงในแต่ละแถว */
             'buttons' => array(
                 array(
-                    'class' => 'icon-edit button green',
+                    'class' => 'hidden',
                     'href' => $uri->createBackUri(array('module' => 'inventory-write', 'id' => ':id')),
                     'text' => '{LNG_Edit}',
                 ),

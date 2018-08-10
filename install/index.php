@@ -31,7 +31,7 @@ if (is_file('../settings/config.php') && is_array(include('../settings/config.ph
     include ROOT_PATH.'install/step'.$step.'.php';
 }
 // footer
-echo '<div class=footer><a href="https://www.kotchasan.com">Kotchasan</a> สงวนลิขสิทธิ์ ตามพระราชบัญญัติลิขสิทธิ์ พ.ศ. 2539</div>';
+echo '<div class=footer><a href="#">System Repair</a></div>';
 echo '</main>';
 echo '<link href="https://fonts.googleapis.com/css?family=Athiti&subset=thai,latin" rel=stylesheet type="text/css">';
 echo '</body>';

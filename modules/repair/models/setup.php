@@ -50,7 +50,7 @@ class Model extends \Kotchasan\Model
             ->groupBy('repair_id');
         $query = static::createQuery()
             ->select('R.id', 'U.name', 'Y.nameToll' , 'Z.bthDirection' , 'AA.bthNumber' , 'V.equipment',
-             'R.create_date', 'R.job_description' , 'S.comment' , 'S.status')
+             'R.job_description' , 'S.comment' , 'R.create_date'  , 'S.status')
             ->from('repair R')
             ->join(array($q1, 'T'), 'LEFT', array('T.repair_id', 'R.id'))
             ->join('repair_status S', 'LEFT', array('S.id', 'T.max_id'))
@@ -86,8 +86,8 @@ class Model extends \Kotchasan\Model
                     $model = new \Kotchasan\Model();
                     if ($action === 'delete' && Login::checkPermission($login, 'can_manage_repair')) {
                         // ลบรายการสั่งซ่อม
-                        $model->db()->delete($model->getTableName('repair'), array('id', $match[1]), 0);
-                        $model->db()->delete($model->getTableName('repair_status'), array('id', $match[1]), 0);
+                       // $model->db()->delete($model->getTableName('repair'), array('id', $match[1]), 0);
+                       // $model->db()->delete($model->getTableName('repair_status'), array('id', $match[1]), 0);
                         // reload
                         $ret['location'] = 'reload';
                     } elseif ($action === 'status' && Login::checkPermission($login, array('can_manage_repair', 'can_repair'))) {

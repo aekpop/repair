@@ -34,8 +34,7 @@ class View extends \Gcms\View
     private $operators;
 
     
-    private $customers;
-
+    private $members;
     /**
      * ตารางรายชื่อสมาชิก
      *
@@ -52,19 +51,19 @@ class View extends \Gcms\View
         $status = $request->request('status', -1)->toInt();
  
         // รายชื่อผู้แจ้งซ่อม
-        $customer_id = $request->request('customer_id')->toInt();
-        $this->customers = \Repair\Operator\Model::create();
-        $customers = array();
+        $member_id = $request->request('member_id')->toInt();
+        $this->members = \Repair\Operator\Model::create();
+        $members = array();
         if ($isAdmin) {
-            $customers[0] = '{LNG_all items}';
-            $customer = $customer_id;
+            $members[0] = '{LNG_all items}';
+            $member = $member_id;
         } else {
-            $customer_id = $login['id'];
-            $customer = array(0, $customer_id);
+            $member_id = $login['id'];
+            $member = array(0, $member_id);
         }
-        foreach ($this->customers->toSelect() as $m => $n) {
-            if ($isAdmin || $m == $customer_id) {
-                $customers[$m] = $n;
+        foreach ($this->members->toSelect() as $m => $n) {
+            if ($isAdmin || $m == $members_id) {
+                $members[$m] = $n;
             }
         }
         // รายชื่อช่างซ่อม
@@ -90,7 +89,7 @@ class View extends \Gcms\View
             /* Uri */
             'uri' => $uri,
             /* Model */
-            'model' => \Repair\Setup\Model::toDataTable($operator, $customer, $status),
+            'model' => \Repair\Setup\Model::toDataTable($operator, $member, $status),
             'perPage' => $request->cookie('repair_perPage', 30)->toInt(),
             'sort' => $request->cookie('repair_sort', 'create_date desc')->toString(),
             'onRow' => array($this, 'onRow'),
@@ -101,16 +100,16 @@ class View extends \Gcms\View
             /* ตั้งค่าการกระทำของของตัวเลือกต่างๆ ด้านล่างตาราง ซึ่งจะใช้ร่วมกับการขีดถูกเลือกแถว */
             'action' => 'index.php/repair/model/setup/action',
             'actionCallback' => 'dataTableActionCallback',
-            'actions' => array(
-                array(
-                    'id' => 'action',
-                    'class' => 'ok',
-                    'text' => '{LNG_With selected}',
-                    'options' => array(
-                        'delete' => '{LNG_Delete}',
-                    ),
-                ),
-            ),
+            //'actions' => array(
+            //    array(
+            //        'id' => 'action',
+            //        'class' => 'ok',
+            //        'text' => '{LNG_With selected}',
+            //        'options' => array(
+            //            'delete' => '{LNG_Delete}',
+            //        ),
+            //    ),
+            //),
             /* ตัวเลือกด้านบนของตาราง ใช้จำกัดผลลัพท์การ query */
             'filters' => array(
                 //array(
@@ -119,12 +118,12 @@ class View extends \Gcms\View
                 //    'options' => $operators,
                 //    'value' => $operator_id,
                 //),
-                //array(
-                //    'name' => 'customer_id',
-                //    'text' => '{LNG_Informer}',
-                //    'options' => $customers,
-                //    'value' => $customer_id,
-                //),
+                array(
+                    'name' => 'member_id',
+                    'text' => '{LNG_Informer}',
+                    'options' => $members,
+                    'value' => $member_id,
+                ),
                 array(
                     'name' => 'status',
                     'text' => '{LNG_Repair status}',
@@ -164,10 +163,14 @@ class View extends \Gcms\View
                 'comment' => array(
                     'text' => '{LNG_Comment}',
                 ),
-                'operator_id' => array(
+                'member_id' => array(
                     'text' => '{LNG_Operator}',
                     'class' => 'center',
                 ),
+                //'operator_id' => array(
+                //    'text' => '{LNG_Operator}',
+                //    'class' => 'center',
+                //),
                 'status' => array(
                     'text' => '{LNG_Repair status}',
                     'class' => 'center',
@@ -227,7 +230,7 @@ class View extends \Gcms\View
      */
     public function onRow($item, $o, $prop)
     {
-        $item['create_date'] = Date::format($item['create_date'], 'd M Y');
+        $item['create_date'] = Date::format($item['create_date'], 'd M Y H:i');
         //$item['phone'] = self::showPhone($item['phone']);
         $item['status'] = '<mark class=term style="background-color:'.$this->statuses->getColor($item['status']).'">'.$this->statuses->get($item['status']).'</mark>';
         //$item['operator_id'] = $this->operators->get($item['operator_id']);
