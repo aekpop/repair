@@ -38,10 +38,13 @@ class Model extends \Kotchasan\Model
             } elseif ($request->post('serial')->exists()) {
                 $search = $request->post('serial')->topic();
                 $order = 'serial';
-            } 
+            } elseif ($request->post('equipment_number')->exists()) {
+                $search = $request->post('equipment_number')->topic();
+                $order = 'equipment_number';
+            }
             // query
             $query = $this->db()->createQuery()
-                ->select('id inventory_id', 'equipment', 'serial')
+                ->select('id inventory_id', 'equipment' , 'equipment_number' , 'serial' )
                 ->from('inventory')
                 ->limit($request->post('count', 10)->toInt())
                 ->toArray();
