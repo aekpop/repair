@@ -64,13 +64,21 @@ class View extends \Gcms\View
             'maxlength' => 30,
             'value' => $index->serial,
         ));
+<<<<<<< HEAD
         // equipment_number
+=======
+        // serial
+>>>>>>> a2f6fb06bd8e0ae8e767b6adf1e4f9dbff8ae287
         $groups->add('text', array(
             'id' => 'equipment_number',
             'labelClass' => 'g-input icon-number',
             'itemClass' => 'width30',
             'label' => '{LNG_Equipment_number}',
+<<<<<<< HEAD
             'maxlength' => 30,
+=======
+            'maxlength' => 20,
+>>>>>>> a2f6fb06bd8e0ae8e767b6adf1e4f9dbff8ae287
             'value' => $index->equipment_number,
         ));
         // inventory_id
