@@ -61,9 +61,9 @@ class View extends \Gcms\View
             $member_id = $login['id'];
             $member = array(0, $member_id);
         }
-        foreach ($this->members->toSelect() as $m => $n) {
-            if ($isAdmin || $m == $member_id) {
-                $members[$m] = $n;
+        foreach ($this->members->toSelect() as $k => $v) {
+            if ($isAdmin || $k == $member_id) {
+                $members[$k] = $v;
             }
         }
         // รายชื่อช่างซ่อม
