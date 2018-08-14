@@ -62,7 +62,7 @@ class View extends \Gcms\View
             $member = array(0, $member_id);
         }
         foreach ($this->members->toSelect() as $m => $n) {
-            if ($isAdmin || $m == $members_id) {
+            if ($isAdmin || $m == $member_id) {
                 $members[$m] = $n;
             }
         }

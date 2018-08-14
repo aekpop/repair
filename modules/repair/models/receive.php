@@ -62,7 +62,7 @@ class Model extends \Kotchasan\Model
                 ->join('repair_status S', 'LEFT', array('S.id', 'T.max_id'))
                 ->join('inventory V', 'LEFT', array('V.id', 'R.inventory_id'))
                 ->where(array('R.id', $id))
-                ->first('R.*', 'V.equipment', 'V.serial', 'S.status', 'S.comment', 'S.id status_id');
+                ->first('R.*', 'V.equipment', 'V.serial', 'V.equipment_number' , 'S.status', 'S.comment', 'S.id status_id');
         }
     }
 
