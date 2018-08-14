@@ -41,10 +41,8 @@ class Model extends \Kotchasan\Model
             return (object) array(
                 'equipment' => '',
                 'serial' => '',
-                'inventory_id' => 0,
-                'toll_id' => '',
-                'bth_direction_id' => '',
-                'bth_number_id' => '',
+                'equipment_number' => '',
+                'inventory_id' => 0,               
                 'job_description' => '',
                 'id' => 0,
                 'comment' => '',
@@ -86,6 +84,7 @@ class Model extends \Kotchasan\Model
                 );
                 $equipment = $request->post('equipment')->topic();
                 $serial = $request->post('serial')->topic();
+                $equipment_number = $request->post('equipment_number')->topic();
                 // ตรวจสอบรายการที่เลือก
                 $index = self::get($request->post('id')->toInt());
                 if (!$index || $index->id > 0 && ($login['id'] != $index->customer_id && !Login::checkPermission($login, 'can_manage_repair'))) {
@@ -94,6 +93,9 @@ class Model extends \Kotchasan\Model
                 } elseif (empty($equipment)) {
                     // equipment
                     $ret['ret_equipment'] = 'Please fill in';
+                } elseif (empty($equipment_number)) {
+                    // equipment_number
+                    $ret['ret_equipment_number'] = 'Please fill in';
                 } elseif (empty($serial)) {
                     // serial
                     $ret['ret_serial'] = 'Please fill in';

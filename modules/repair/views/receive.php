@@ -50,7 +50,7 @@ class View extends \Gcms\View
         $groups->add('text', array(
             'id' => 'equipment',
             'labelClass' => 'g-input icon-edit',
-            'itemClass' => 'width50',
+            'itemClass' => 'width30',
             'label' => '{LNG_Equipment}',
             'maxlength' => 64,
             'value' => $index->equipment,
@@ -59,10 +59,19 @@ class View extends \Gcms\View
         $groups->add('text', array(
             'id' => 'serial',
             'labelClass' => 'g-input icon-number',
-            'itemClass' => 'width50',
+            'itemClass' => 'width30',
             'label' => '{LNG_Serial/Registration number}',
-            'maxlength' => 20,
+            'maxlength' => 30,
             'value' => $index->serial,
+        ));
+        // equipment_number
+        $groups->add('text', array(
+            'id' => 'equipment_number',
+            'labelClass' => 'g-input icon-number',
+            'itemClass' => 'width30',
+            'label' => '{LNG_Equipment_number}',
+            'maxlength' => 30,
+            'value' => $index->equipment_number,
         ));
         // inventory_id
         $fieldset->add('hidden', array(
