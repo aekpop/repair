@@ -28,6 +28,7 @@ class Controller extends \Kotchasan\KBase
      */
     public static function addCard(Request $request, $card, $login)
     {
-        \Index\Home\Controller::renderCard($card, 'icon-tools', '{LNG_Repair list}', number_format(\Repair\Home\Model::getNew($login)), '{LNG_Job today}', 'index.php?module=repair-setup'.(isset(self::$cfg->repair_first_status) ? '&amp;status='.self::$cfg->repair_first_status : ''));
-    }
+        \Index\Home\Controller::renderCard($card, 'icon-tools', '{LNG_Repair list}', number_format(\Repair\Home\Model::getNew($login)), 
+        '{LNG_Job today}', 'index.php?module=repair-setup'.(isset(self::$cfg->repair_first_status) ? '&amp;status='.self::$cfg->repair_first_status : ''));
+    }    
 }

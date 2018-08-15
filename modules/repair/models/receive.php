@@ -125,7 +125,8 @@ class Model extends \Kotchasan\Model
                             'status' => $request->post('status_id')->topic(),
                             //'status' => isset(self::$cfg->repair_first_status) ? self::$cfg->repair_first_status : 1,
                             'create_date' => $repair['create_date'],
-                            'operator_id' => 0,
+                            //'operator_id' => 0,
+                            'operator_id' => $login['id'],
                         );
                         // บันทึกประวัติการทำรายการ แจ้งซ่อม
                         $db->insert($repair_status_table, $log);

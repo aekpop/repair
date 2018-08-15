@@ -1,11 +1,6 @@
 <?php
 /**
  * @filesource modules/inventory/models/autocomplete.php
- *
- * @copyright 2016 Goragod.com
- * @license http://www.kotchasan.com/license/
- *
- * @see http://www.kotchasan.com/
  */
 
 namespace Inventory\Autocomplete;
@@ -15,10 +10,6 @@ use Kotchasan\Http\Request;
 
 /**
  * ค้นหาครุภัณฑ์สำหรับ autocomplete.
- *
- * @author Goragod Wiriya <admin@goragod.com>
- *
- * @since 1.0
  */
 class Model extends \Kotchasan\Model
 {
@@ -36,8 +27,8 @@ class Model extends \Kotchasan\Model
                 $search = $request->post('equipment')->topic();
                 $order = 'equipment';
             } elseif ($request->post('serial')->exists()) {
-                $search = $request->post('serial')->topic();
-                $order = 'serial';
+               $search = $request->post('serial')->topic();
+               $order = 'serial';
             } elseif ($request->post('equipment_number')->exists()) {
                 $search = $request->post('equipment_number')->topic();
                 $order = 'equipment_number';
@@ -46,7 +37,7 @@ class Model extends \Kotchasan\Model
             $query = $this->db()->createQuery()
                 ->select('id inventory_id', 'equipment' , 'equipment_number' , 'serial' )
                 ->from('inventory')
-                ->limit($request->post('count', 10)->toInt())
+                ->limit($request->post('count', 20)->toInt())
                 ->toArray();
             if (isset($search)) {
                 $query->where(array($order, 'LIKE', "%$search%"))->order($order);

@@ -1,11 +1,6 @@
 <?php
 /**
  * @filesource modules/repair/controllers/receive.php
- *
- * @copyright 2016 Goragod.com
- * @license http://www.kotchasan.com/license/
- *
- * @see http://www.kotchasan.com/
  */
 
 namespace Repair\Receive;
@@ -17,10 +12,6 @@ use Kotchasan\Language;
 
 /**
  * เพิ่ม-แก้ไข ใบรับงาน.
- *
- * @author Goragod Wiriya <admin@goragod.com>
- *
- * @since 1.0
  */
 class Controller extends \Gcms\Controller
 {
