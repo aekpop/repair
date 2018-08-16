@@ -49,7 +49,7 @@ class Model extends \Kotchasan\Model
             ->from('repair_status')
             ->groupBy('repair_id');
         $query = static::createQuery()
-            ->select('R.id', 'U.name', 'Y.nameToll' , 'Z.bthDirection' , 'AA.bthNumber' , 'V.equipment',
+            ->select('R.id', 'U.name', 'Y.nameToll' , 'Z.bthDirection' , 'AA.bthNumber' , 'V.equipment', 
              'R.job_description' , 'S.comment' , 'R.create_date'  , 'S.status')
             ->from('repair R')
             ->join(array($q1, 'T'), 'LEFT', array('T.repair_id', 'R.id'))

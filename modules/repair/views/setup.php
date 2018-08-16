@@ -148,10 +148,12 @@ class View extends \Gcms\View
                 ),
                 'equipment' => array(
                     'text' => '{LNG_Equipment}',
+                   
                 ),
-                //'equipment_number' => array(
-                //    'text' => '{LNG_Equipment_number}',
-                //),
+                'equipment_number' => array(
+                    'text' => '{LNG_Equipment_number}',
+                    'class' => 'hidden',
+                ),
                 'create_date' => array(
                     'text' => '{LNG_Received date}',
                     'class' => 'center',

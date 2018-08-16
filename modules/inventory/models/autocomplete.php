@@ -36,6 +36,7 @@ class Model extends \Kotchasan\Model
             // query
             $query = $this->db()->createQuery()
                 ->select('id inventory_id', 'equipment' , 'equipment_number' , 'serial' )
+                //->select('id', 'equipment' , 'equipment_number' , 'serial' )
                 ->from('inventory')
                 ->limit($request->post('count', 20)->toInt())
                 ->toArray();

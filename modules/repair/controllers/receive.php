@@ -1,7 +1,4 @@
 <?php
-/**
- * @filesource modules/repair/controllers/receive.php
- */
 
 namespace Repair\Receive;
 

@@ -64,6 +64,7 @@ class View extends \Gcms\View
             'maxlength' => 30,
             'value' => $index->serial,
         ));
+        // equipment_number
         $groups->add('text', array(
             'id' => 'equipment_number',
             'labelClass' => 'g-input icon-number',
