@@ -83,8 +83,8 @@ class Model extends \Kotchasan\Model
                     'inventory_id' => $request->post('inventory_id')->toInt(),
                 );
                 $equipment = $request->post('equipment')->topic();
-                $serial = $request->post('serial')->topic();
                 $equipment_number = $request->post('equipment_number')->topic();
+                $serial = $request->post('serial')->topic();
                 // ตรวจสอบรายการที่เลือก
                 $index = self::get($request->post('id')->toInt());
                 if (!$index || $index->id > 0 && ($login['id'] != $index->customer_id && !Login::checkPermission($login, 'can_manage_repair'))) {

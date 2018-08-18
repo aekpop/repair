@@ -32,10 +32,10 @@ class Model extends \Kotchasan\Model
             } elseif ($request->post('equipment_number')->exists()) {
                 $search = $request->post('equipment_number')->topic();
                 $order = 'equipment_number';
-            }
+            }    
             // query
             $query = $this->db()->createQuery()
-                ->select('id inventory_id', 'equipment' , 'equipment_number' , 'serial' )
+                ->select('id inventory_id', 'equipment' , 'serial' , 'equipment_number')
                 //->select('id', 'equipment' , 'equipment_number' , 'serial' )
                 ->from('inventory')
                 ->limit($request->post('count', 20)->toInt())

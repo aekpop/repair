@@ -18,21 +18,21 @@ function initRepairGet() {
   var equipment = initAutoComplete(
     "equipment",
     WEB_URL + "index.php/inventory/model/autocomplete/find",
-    "equipment,serial,equipment_number",
+    "equipment,serial",
     "find",
     o
   );
   var serial = initAutoComplete(
     "serial",
     WEB_URL + "index.php/inventory/model/autocomplete/find",
-    "serial,equipment,equipment_number",
+    "serial,equipment",
     "find",
     o
   );
   var equipment_number = initAutoComplete(
     "equipment_number",
     WEB_URL + "index.php/inventory/model/autocomplete/find",
-    "equipment_number,equipment,toll_id",
+    "equipment_number",
     "find",
     o
   );

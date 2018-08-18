@@ -67,7 +67,7 @@ class View extends \Gcms\View
         // equipment_number
         $groups->add('text', array(
             'id' => 'equipment_number',
-            'labelClass' => 'g-input icon-number',
+            'labelClass' => 'g-input icon-find',
             'itemClass' => 'width30',
             'label' => '{LNG_Equipment_number}',
             'maxlength' => 30,
