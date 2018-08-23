@@ -111,6 +111,8 @@ class Controller extends \Gcms\Controller
                 '/{MENUS}/' => self::$menus->render($main->menu(), $login),
                 // แสดงชื่อคน Login
                 '/{LOGINNAME}/' => empty($login['name']) ? $login['username'] : $login['name'],
+                // แสดงวันที่
+                '/{DATE}/' => date('d - m - Y'),
             ));
         }
         // ส่งออก เป็น HTML

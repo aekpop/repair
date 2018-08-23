@@ -136,6 +136,7 @@ class View extends \Gcms\View
                 'name' => array(
                     'text' => '{LNG_Informer}',
                     'sort' => 'name',
+                    'class' => 'hidden',
                 ),
                 'nameToll' => array(
                     'text' => '{LNG_nameToll}',

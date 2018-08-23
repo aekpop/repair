@@ -78,7 +78,7 @@ class Controller extends \Gcms\Controller
         }
         if ($card->count() < 4) {
             // จำนวนสมาชิกทั้งหมด
-            self::renderCard($card, 'icon-users', '{LNG_Users}', number_format(\Index\Member\Model::getCount()), '{LNG_Member list}', 'index.php?module=member');
+            self::renderCard($card, 'icon-users', '{LNG_Users}', number_format(\Index\Member\Model::getCount()), '{LNG_Member list}', 'index.php?module=member');  
         }
         // dashboard
         $dashboard = $section->add('div', array(
@@ -93,7 +93,7 @@ class Controller extends \Gcms\Controller
                 ));
             }
             $ggrid->add('section', array(
-                'class' => 'card block3 float-left',
+                'class' => 'card block4 float-left',
                 'innerHTML' => $item,
             ));
             ++$n;
