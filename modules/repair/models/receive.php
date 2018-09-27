@@ -42,6 +42,7 @@ class Model extends \Kotchasan\Model
                 'equipment' => '',
                 'serial' => '',
                 'equipment_number' => '',
+                'toll_id' => '',
                 'inventory_id' => 0,               
                 'job_description' => '',
                 'id' => 0,
@@ -61,8 +62,9 @@ class Model extends \Kotchasan\Model
                 ->join(array($q1, 'T'), 'LEFT', array('T.repair_id', 'R.id'))
                 ->join('repair_status S', 'LEFT', array('S.id', 'T.max_id'))
                 ->join('inventory V', 'LEFT', array('V.id', 'R.inventory_id'))
+                ->join('toll N', 'LEFT' , array('N.id' , 'V.toll_id'))
                 ->where(array('R.id', $id))
-                ->first('R.*', 'V.equipment', 'V.serial', 'V.equipment_number' , 'S.status', 'S.comment', 'S.id status_id');
+                ->first('R.*', 'V.equipment', 'V.serial', 'V.equipment_number'  , 'V.toll_id' , 'S.status', 'S.comment', 'S.id status_id');
         }
     }
 

@@ -112,7 +112,8 @@ class Controller extends \Gcms\Controller
                 // แสดงชื่อคน Login
                 '/{LOGINNAME}/' => empty($login['name']) ? $login['username'] : $login['name'],
                 // แสดงวันที่
-                '/{DATE}/' => date('d - m - Y'),
+                '/{DATE}/' => date('d / m / Y'),
+                '/{TIME}/' => date('H:i'),
             ));
         }
         // ส่งออก เป็น HTML

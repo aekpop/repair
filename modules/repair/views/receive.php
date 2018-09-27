@@ -73,6 +73,15 @@ class View extends \Gcms\View
             'maxlength' => 30,
             'value' => $index->equipment_number,
         ));
+        // toll_id
+        $groups->add('text', array(
+            'id' => 'toll_id',
+            'labelClass' => 'g-input icon-find',
+            'itemClass' => 'width30',
+            'label' => '{LNG_nameToll}',
+            'maxlength' => 30,
+            'value' => $index->toll_id,
+        ));
         // inventory_id
         $fieldset->add('hidden', array(
             'id' => 'inventory_id',

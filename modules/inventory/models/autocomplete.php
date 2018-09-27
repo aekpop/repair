@@ -32,13 +32,19 @@ class Model extends \Kotchasan\Model
             } elseif ($request->post('equipment_number')->exists()) {
                 $search = $request->post('equipment_number')->topic();
                 $order = 'equipment_number';
-            }    
+            } elseif ($request->post('toll_id')->exists()) {
+                $search = $request->post('toll_id')->topic();
+                $order = 'toll_id';
+            }        
             // query
             $query = $this->db()->createQuery()
                 ->select('id inventory_id', 'equipment' , 'serial' , 'equipment_number')
-                //->select('id', 'equipment' , 'equipment_number' , 'serial' )
                 ->from('inventory')
-                ->limit($request->post('count', 20)->toInt())
+                ->groupBy('inventory_id')
+                //->select('id V.inventory_id', 'V.equipment' , 'V.serial' , 'V.equipment_number', 'T.nameToll')
+                //->from('inventory V')
+                //->join('toll T', 'LEFT', array('T.id', 'V.toll_id'))
+                ->limit($request->post('count', 30)->toInt())
                 ->toArray();
             if (isset($search)) {
                 $query->where(array($order, 'LIKE', "%$search%"))->order($order);
